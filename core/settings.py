@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [".onrender.com"]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
-    "https://treasurekoii.netlify.app/"
+    "https://treasurekoii.netlify.app"
 ]
 
 AUTH_USER_MODEL = "api.User"
