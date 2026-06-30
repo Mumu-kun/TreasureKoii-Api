@@ -27,10 +27,11 @@ SECRET_KEY = 'django-insecure-$!6xx%58dqq!om58mq6e!u-7kd^83#8skhr5z)_=u@9x^!21c1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".onrender.com"]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    "https://treasurekoii.netlify.app/"
 ]
 
 AUTH_USER_MODEL = "api.User"
@@ -143,9 +144,21 @@ SIMPLE_JWT = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "neondb",
+        "USER": "neondb_owner",
+        "PASSWORD": "npg_45dxFunoPAza",
+        "HOST": "ep-raspy-night-ahwv1b3z-pooler.c-3.us-east-1.aws.neon.tech",
+        "PORT": "5432",
+        "OPTIONS": {
+            "sslmode": "require",
+            "channel_binding": "require"
+        },
     }
 }
 
