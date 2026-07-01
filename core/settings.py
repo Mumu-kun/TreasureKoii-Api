@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$!6xx%58dqq!om58mq6e!u-7kd^83#8skhr5z)_=u@9x^!21c1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = ["localhost", ".onrender.com"]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
@@ -54,10 +54,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
@@ -105,9 +108,9 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     # TODO: change to 5 minutes
-    # "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
     # "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    # "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -204,3 +207,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+AWS_ACCESS_KEY_ID = "003b877a457d48f0000000005"
+AWS_SECRET_ACCESS_KEY = "K0031t7U/MQtGSEXJk+7UqoxwM8J47Q"
+
+AWS_STORAGE_BUCKET_NAME = "treasurekoiibucket"
+AWS_S3_REGION_NAME = "eu-central-003"
+AWS_S3_ENDPOINT_URL = "https://s3.eu-central-003.backblazeb2.com"
+
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = True
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}

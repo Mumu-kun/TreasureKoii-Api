@@ -46,7 +46,7 @@ class Hunt(models.Model):
         return self.name
 
     # manual payment integration - until this app scales. (im lazy and busy with other stuff)
-    payment_completed = models.BooleanField(default=False)
+    payment_completed = models.BooleanField(default=True)
     # needs to be unique.
     payment_uuid = models.CharField(max_length=100, blank=True, null=True)
 
