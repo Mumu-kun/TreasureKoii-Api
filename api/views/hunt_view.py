@@ -75,7 +75,7 @@ def create_hunt(request):
         description=description,
         start_date=start_date,
         end_date=end_date,
-        payment_completed=False,
+        # payment_completed=False,
         poster_img=poster_img,
         payment_uuid=uuid.uuid4()
     )
