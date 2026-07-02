@@ -162,6 +162,7 @@ DATABASES = {
             "sslmode": "require",
             "channel_binding": "require"
         },
+        "CONN_MAX_AGE": 1200,
     }
 }
 
