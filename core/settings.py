@@ -153,20 +153,19 @@ DATABASES = {
     # }
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "neondb",
+        "NAME": "neondb_nlyv",
         "USER": "neondb_owner",
-        "PASSWORD": "npg_45dxFunoPAza",
-        "HOST": "ep-raspy-night-ahwv1b3z-pooler.c-3.us-east-1.aws.neon.tech",
+        "PASSWORD": "LTTcD9uKMKg6etSUfPceuNuoOYOFghnU",
+        "HOST": "dpg-d9320guh2hms73d4r7i0-a",
         "PORT": "5432",
         "OPTIONS": {
             "sslmode": "require",
-            "channel_binding": "require"
         },
         "CONN_MAX_AGE": 1200,
     }
 }
 
-
+# postgresql://neondb_owner:LTTcD9uKMKg6etSUfPceuNuoOYOFghnU@dpg-d9320guh2hms73d4r7i0-a.singapore-postgres.render.com/neondb_nlyv
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
